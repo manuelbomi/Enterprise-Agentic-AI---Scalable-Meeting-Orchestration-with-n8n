@@ -166,8 +166,23 @@
 
 ##### &emsp; &emsp;  start_time and end_time from AI reasoning.
 
-##### &emsp; &emsp;  Outputs:
+##### &emsp; &emsp; Outputs:
 
+##### &emsp; &emsp; List of free blocks that the AI can propose to the user.
+
+##### &emsp; &emsp; b) Create Event
+
+##### &emsp; &emsp; Node Type: googleCalendarTool
+
+##### &emsp; &emsp; Purpose: Books the confirmed meeting.
+
+##### &emsp; &emsp; Inputs:
+
+##### &emsp; &emsp; start_date, end_date, summary, and description.
+
+##### &emsp; &emsp; Outputs:
+
+##### &emsp; &emsp; Confirmation that an event has been created.
 
 
 #### Key Highlights of the Design 💡  :
