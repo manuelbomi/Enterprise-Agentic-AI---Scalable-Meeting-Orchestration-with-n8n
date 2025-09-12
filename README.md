@@ -98,9 +98,9 @@
 ## Workflow Components Details 🧩 :
 #### 1. Chat Input
 
-  ##### Node Type: chatTrigger
+  &emsp; ##### Node Type: chatTrigger
 
-  ##### Purpose: Entry point for user interaction.
+  &emsp; ##### Purpose: Entry point for user interaction.
 
   ##### Notes:
 
