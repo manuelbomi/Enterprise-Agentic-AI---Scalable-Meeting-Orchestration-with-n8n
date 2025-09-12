@@ -233,7 +233,7 @@ Book events automatically
 ---
 
 
-## Prodcution Grade Deployment Guide 🚀 
+## Production Grade Deployment Guide 🚀 
 
 This segment explains how to deploy the Enterprise Agentic AI Scheduler workflow in a production-grade environments including :
 
