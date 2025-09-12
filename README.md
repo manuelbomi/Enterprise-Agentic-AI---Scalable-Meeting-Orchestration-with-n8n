@@ -64,9 +64,12 @@
 #### Below is a step-by-step interaction diagram showing how the AI Agent interact with the uset to help schedule a meeting:
 
 sequenceDiagram
-    participant U as User
-    participant A as AI Agent
-    participant G as Google Calendar
+
+    * participant U as User
+    
+    * participant A as AI Agent
+    
+    * participant G as Google Calendar
 
     U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
     A->>G: Check availability for tomorrow
@@ -82,9 +85,10 @@ sequenceDiagram
 ---
 
 #### Below are some figures of how the Agent interact with users via the n8n UI
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0d2b2e3e-8580-47cf-9db2-954faa2bba46" />
 
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/792d2cf7-2235-4c8b-b8f6-1c91f80403f7" />
-<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0d2b2e3e-8580-47cf-9db2-954faa2bba46" />
+
 
 ---
 
