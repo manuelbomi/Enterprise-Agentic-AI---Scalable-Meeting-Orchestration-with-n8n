@@ -1,25 +1,24 @@
-Enterprise Agentic AI: Scalable Meeting Orchestration with n8n 
+# Enterprise Agentic AI: Scalable Meeting Orchestration with n8n 
 
-An Agentic AI–powered workflow built with n8n
-, designed to automate meeting scheduling across an enterprise using OpenAI + Google Calendar.
+#### An Agentic AI–powered workflow built with n8n, designed to automate meeting scheduling across an enterprise using OpenAI + Google Calendar.
 
-This workflow demonstrates how Agentic AI can seamlessly integrate with enterprise tools to provide scalable, intelligent, and context-aware scheduling assistance. It can be adapted for broader enterprise use cases beyond just calendar automation.
+#### This workflow demonstrates how Agentic AI can seamlessly integrate with enterprise tools to provide scalable, intelligent, and context-aware scheduling assistance. It can be adapted for broader enterprise use cases beyond just calendar automation.
 
-📖 Introduction
+## Introduction 📖
 
-In enterprise environments, scheduling meetings across teams can be repetitive and time-consuming. This repository provides a ready-to-use Agentic AI workflow in n8n that:
+#### In enterprise environments, scheduling meetings across teams can be repetitive and time-consuming. This repository provides a ready-to-use Agentic AI workflow in n8n that:
 
-Acts as an AI-powered scheduling assistant
+* Acts as an AI-powered scheduling assistant
 
-Reads availability from Google Calendar
+* Reads availability from Google Calendar
 
-Confirms timeslots interactively with users
+* Confirms timeslots interactively with users
 
-Creates events automatically once finalized
+* Creates events automatically once finalized
 
-It showcases how Agentic AI principles can be applied to real-world enterprise workflows.
+* It showcases how Agentic AI principles can be applied to real-world enterprise workflows.
 
-🛠️ Workflow Overview
+## Workflow Overview 🛠️ 
 
 The workflow is composed of the following components:
 
