@@ -110,35 +110,35 @@
 
 #### 2. AI Agent
 
-  ##### Node Type: langchain.agent
+  ##### &emsp; Node Type: langchain.agent
 
-  ##### Purpose: Core reasoning engine of the workflow.
+  ##### &emsp; Purpose: Core reasoning engine of the workflow.
 
-  ##### Features:
+  ##### &emsp; Features:
 
-  ##### Takes user input.
+  ##### &emsp; Takes user input.
 
-  ##### Uses tools (Google Calendar actions).
+  ##### &emsp; Uses tools (Google Calendar actions).
 
-  ##### Delegates tasks like checking availability or creating events.
+  ##### &emsp; Delegates tasks like checking availability or creating events.
 
-  ##### Configured With:
+  ##### &emsp; Configured With:
 
-  ##### System Message → Defines assistant role as a “calendar assistant.”
+  ##### &emsp; System Message → Defines assistant role as a “calendar assistant.”
 
-  ##### Memory & LLM → Keeps track of context across the conversation.
+  ##### &emsp; Memory & LLM → Keeps track of context across the conversation.
 
-* 3. OpenAI Chat Model
+#### 3. OpenAI Chat Model
 
-Node Type: lmChatOpenAi
+  ##### &emsp;Node Type: lmChatOpenAi
 
-Model Used: gpt-4o-mini
+  ##### &emsp; Model Used: gpt-4o-mini
 
-Purpose: Provides natural language reasoning and response generation.
+  ##### &emsp; Purpose: Provides natural language reasoning and response generation.
 
-Why GPT-4o-mini?
+  #### &emsp;Why GPT-4o-mini?
 
-Optimized for speed and cost.
+  ##### &emsp; &emsp;Optimized for speed and cost.
 
 Provides sufficient intelligence for scheduling tasks.
 
