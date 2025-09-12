@@ -11,7 +11,7 @@
 
 ---
 
-#### For AI Architects that are interest in step-by-step detail of how the Agent is created in n8n, it is given here:
+#### For AI Architects that are interest in step-by-step detail of how the Agent is created in n8n, it is given here:  https://github.com/manuelbomi/Designing-an-Enterprise-Agentic-AI-Scheduler-in-n8n/tree/main
 
 #### Instructions regarding how the Agent can be cloned and deployed using its json file (available here: https://github.com/manuelbomi/Enterprise-Agentic-AI---Scalable-Meeting-Orchestration-with-n8n/blob/main/workflows/agentic_ai_enterprise_scheduling.json) is given under the deployment section in the Read Me. 
 
