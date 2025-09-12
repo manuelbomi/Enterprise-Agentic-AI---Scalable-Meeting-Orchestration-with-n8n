@@ -524,7 +524,7 @@ services:
 
 ##### By swapping tools or connecting new APIs in n8n, you can customize it for:
 
-*  1. Replacing Google Calendar with Other Calendars
+### 1. Replacing Google Calendar with Other Calendars
 
 ##### &emsp; Outlook / Microsoft 365 Calendar → Use the official n8n Microsoft Outlook node.
 
@@ -534,7 +534,7 @@ services:
 
 ---
 
-*  2. Extending to Enterprise Systems
+### 2. Extending to Enterprise Systems
 
 ##### &emsp; CRM (Salesforce, HubSpot, Zoho CRM)
 
@@ -552,7 +552,7 @@ services:
 
 ---
 
-*  3. Using Multiple Calendars (Cross-Department Scheduling)
+###  3. Using Multiple Calendars (Cross-Department Scheduling)
 
 ##### &emsp; Add more Google Calendar Tool nodes for different users/departments.
 
@@ -562,7 +562,7 @@ services:
 
 ---
 
-*  4. Enabling Multi-Agent Collaboration
+### 4. Enabling Multi-Agent Collaboration
 
 ##### &emsp; Create multiple AI Agents in n8n for different roles (HR Agent, Sales Agent, IT Agent).
 
@@ -570,7 +570,7 @@ services:
 
 ---
 
-*  5. Security & Access Control
+###  5. Security & Access Control
 
 ##### &emsp; Use OAuth2 credentials in n8n to ensure each user’s calendar/system is accessed securely.
 
@@ -578,7 +578,7 @@ services:
 
 ---
 
-*  6. Examples of Custom Adaptations
+###  6. Examples of Custom Adaptations
 
 ##### &emsp; Sales Enterprise → Meeting scheduler linked to Salesforce leads + Google Meet link creation.
 
@@ -588,7 +588,7 @@ services:
 
 ---
 
-*  7. General Best Practices for Customization
+###  7. General Best Practices for Customization
 
 ##### &emsp; Keep workflow modular → each external system as a separate n8n node.
 
@@ -600,7 +600,7 @@ services:
 
 ---
 
-*  8. Advanced Scheduling Logic
+###  8. Advanced Scheduling Logic
 
 ##### &emsp; Support recurring events (weekly standups, monthly reviews).
 
@@ -612,7 +612,7 @@ services:
 
 ---
 
-*  9. High Availability Deployment for the Enterprise (as shown in Production Grade Deployments)
+###  9. High Availability Deployment for the Enterprise (as shown in Production Grade Deployments)
 
 ##### &emsp; Option 1: Deploy n8n in Docker with horizontal scaling.
 
@@ -622,7 +622,7 @@ services:
 
 ---
 
-*  10. Security & Compliance
+###  10. Security & Compliance
 
 ##### &emsp; Integrate with Single Sign-On (SSO) providers (Okta, Azure AD, Google Workspace).
 
@@ -634,7 +634,7 @@ services:
 
 ---
 
-*  11 Other Enhancements for Enterprise Applications
+###  11 Other Enhancements for Enterprise Applications
 
 ##### &emsp; Natural Language Rescheduling: Allow users to say “move my meeting to next Wednesday at 10”.
 
