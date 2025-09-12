@@ -276,60 +276,6 @@ n8n Docs
 #### 🐳 2) Docker Compose — recommended for single-server self-hosting
 
 ##### &emsp; Use Docker Compose for a simple repeatable deployment. For production, use a managed Postgres DB and consider Redis for queue mode.
-
----
-Minimal docker-compose.yml (example)
-version: "3.8"
-services:
-  postgres:
-    image: postgres:15
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: n8n
-      POSTGRES_PASSWORD: n8n_pass
-      POSTGRES_DB: n8n
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7
-    restart: unless-stopped
-
-  n8n:
-    image: n8nio/n8n:latest
-    restart: unless-stopped
-    ports:
-      - "5678:5678"
-    environment:
-      # Basic required envs - set to secure vals in production
-      DB_TYPE: postgresdb
-      DB_POSTGRESDB_HOST: postgres
-      DB_POSTGRESDB_PORT: 5432
-      DB_POSTGRESDB_DATABASE: n8n
-      DB_POSTGRESDB_USER: n8n
-      DB_POSTGRESDB_PASSWORD: n8n_pass
-
-      # Use redis for queue mode
-      QUEUE_MODE: "true"
-      EXECUTIONS_PROCESS: "main"
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-
-      # Admin user (or use OAuth/SSO)
-      N8N_BASIC_AUTH_ACTIVE: "true"
-      N8N_BASIC_AUTH_USER: "admin"
-      N8N_BASIC_AUTH_PASSWORD: "${N8N_BASIC_AUTH_PASSWORD}" # set in .env
-    volumes:
-      - ./n8n:/home/node/.n8n
-    depends_on:
-      - postgres
-      - redis
-
-
----
-
-
-#### Processing the Kafka Stream. The raw Kafka messages (often in binary format) are typically parsed and transformed. For instance, if the messages are JSON strings, they can be parsed into a structured schema.
 ---
 ```ruby
 
@@ -383,97 +329,113 @@ services:
 ```
 ---
 
-Notes & recommendations
+#### Notes & recommendations
 
-Use managed Postgres (Cloud SQL / AWS RDS / Azure DB) for production.
+* Use managed Postgres (Cloud SQL / AWS RDS / Azure DB) for production.
 
-Run n8n in queue mode (with Redis) for scalable execution across worker nodes.
+* Run n8n in queue mode (with Redis) for scalable execution across worker nodes.
 
-Use a reverse proxy (nginx / Traefik) with TLS for secure access.
+* Use a reverse proxy (nginx / Traefik) with TLS for secure access.
 
-Persist ./n8n and DB volumes.
+* Persist ./n8n and DB volumes.
 
-See n8n’s Docker Compose / server setup docs for more details. 
-n8n Docs
-+1
+* See n8n’s Docker Compose / server setup docs for more details. 
 
-☁️ 3) n8n Cloud / Managed Hosting
+---
 
-If you prefer no-ops hosting, use n8n Cloud (Enterprise) — it offers managed scaling, backups, and enterprise SLAs. This is the fastest path for enterprises that want a managed experience (SSO, team management, etc.). Contact n8n sales for enterprise features.
+####  ☁️ 3) n8n Cloud / Managed Hosting
 
-☸️ 4) Kubernetes — production-grade, highly available
+##### &emsp; If you prefer no-ops hosting, use n8n Cloud (Enterprise) — it offers managed scaling, backups, and enterprise SLAs. 
 
-For large enterprises, use Kubernetes + Helm chart to support HA, autoscaling, and GitOps.
+##### &emsp; This is the fastest path for enterprises that want a managed experience (SSO, team management, etc.). Contact n8n sales for enterprise features.
 
-Options
+---
 
-Use the official/community Helm chart (artifact/packaged charts exist). 
-Artifact Hub
-+1
+#### ☸️ 4) Kubernetes — production-grade, highly available
 
-Use external managed DB (Postgres), external Redis (cloud provider), and object storage (S3/MinIO) for binary data.
+* For large enterprises, use Kubernetes + Helm chart to support high availability (HA), autoscaling, GitOps and/or MLOps.
 
-High-level steps
+##### &emsp; Options
 
-Create namespace and configure persistent volumes or S3 for storage.
+##### &emsp; &emsp; Use the official/community Helm chart (artifact/packaged charts exist). 
+##### &emsp; &emsp; Artifact Hub
+##### &emsp; &emsp; +1
 
-Install Postgres (managed) and Redis (managed) or provide access to existing instances.
+* Use external managed DB (Postgres), external Redis (cloud provider), and object storage (S3/MinIO) for binary data.
 
-Install n8n Helm chart with values:
+##### &emsp; High-level steps
 
-db.type=postgres
+* Create namespace and configure persistent volumes or S3 for storage.
 
-externalDb.host=..., externalDb.user=..., externalDb.password=...
+* Install Postgres (managed) and Redis (managed) or provide access to existing instances.
 
-redis.enabled=false (if using managed Redis) and configure queue.mode=true
+* Install n8n Helm chart with values:
 
-Configure ingress for TLS and hostnames.
+* db.type=postgres
 
-HA configuration
+* externalDb.host=..., externalDb.user=..., externalDb.password=...
 
-Run n8n in queue mode with multiple worker pods.
+* redis.enabled=false (if using managed Redis) and configure queue.mode=true
 
-Run a small number of web pods behind a load balancer for editor/API traffic.
+* Configure ingress for TLS and hostnames.
 
-Use readiness/liveness probes and configure resource requests/limits.
+* HA configuration
 
-Integrate Prometheus/Grafana for metrics & alerting.
+* Run n8n in queue mode with multiple worker pods.
 
-Community Helm charts and guides provide detailed values.yaml samples and best practices. 
-Artifact Hub
-+1
+* Run a small number of web pods behind a load balancer for editor/API traffic.
 
-🔐 Credentials & Secrets
+* Use readiness/liveness probes and configure resource requests/limits.
 
-NEVER store API keys or OAuth tokens in the repo. Use environment variables, Kubernetes Secrets, or a vault (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault).
+* Integrate Prometheus/Grafana for metrics & alerting.
 
-For Google Calendar: set up OAuth2 client credentials in Google Cloud Console and add them as n8n credentials (via UI or secrets).
+##### &emsp; &emsp; Community Helm charts and guides provide detailed values.yaml samples and best practices. 
+##### &emsp; &emsp; Artifact Hub
+##### &emsp; &emsp; +1
 
-For OpenAI: store OPENAI_API_KEY in secrets; configure the n8n OpenAI credential to read it.
+---
 
-📥 Importing the workflow (recommended ways)
-A) Editor UI (recommended for most users)
+#### 🔐 Credentials & Secrets
 
-Editor → Top-right three dots → Import from File → select workflow/Agentic_AI_workflow.json. This is the simplest and most reliable method. 
-n8n Docs
+* NEVER store API keys or OAuth tokens in the repo. Use environment variables, Kubernetes Secrets, or a vault (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault).
 
-B) CLI import (automation / CI)
+* For Google Calendar: set up OAuth2 client credentials in Google Cloud Console and add them as n8n credentials (via UI or secrets).
 
-You can import workflows programmatically using n8n CLI tools on the same host as n8n (useful for CI pipelines / provisioning):
+* For OpenAI: store OPENAI_API_KEY in secrets; configure the n8n OpenAI credential to read it.
 
-# Example (run where n8n binary/cli is available)
-n8n import:workflow --input=workflow/Agentic_AI_workflow.json
+---
+
+#### 📥 Importing the workflow (recommended ways)
+
+* A) Editor UI (recommended for most users)
+
+##### &emsp;  Editor → Top-right three dots → Import from File → select workflow/Agentic_AI_workflow.json. This is the simplest and most reliable method. 
+##### &emsp; n8n Docs
+
+* B) CLI import (automation / CI)
+
+##### &emsp; You can import workflows programmatically using n8n CLI tools on the same host as n8n (useful for CI pipelines / provisioning):
+
+##### &emsp;  Example (run where n8n binary/cli is available)
+
+##### &emsp;  n8n import:workflow --input=workflow/Agentic_AI_workflow.json
 
 
-Use the CLI when provisioning many workflows or seeding an instance. The CLI supports importing credentials as well; be careful with IDs — exported JSON contains IDs that may need to be changed to avoid overwriting existing items. 
-n8n Docs
-+1
+##### &emsp;  Use the CLI when provisioning many workflows or seeding an instance. The CLI supports importing credentials as well; be careful with IDs — exported JSON contains IDs that may need to be changed to avoid overwriting existing items. 
 
-C) API import (programmatic, advanced)
+##### &emsp;  n8n Docs
+##### &emsp;  +1
 
-n8n exposes REST endpoints allowing creation of workflows via API — but note some exported JSON fields (IDs, state, credentials) may need removal or normalization before an API import to avoid errors. Community discussions show you sometimes must strip fields that conflict with the target instance. Test on staging first. 
-n8n Community
-+1
+---
+
+* C) API import (programmatic, advanced)
+
+##### &emsp;  n8n exposes REST endpoints allowing creation of workflows via API — but note some exported JSON fields (IDs, state, credentials) may need removal or normalization before an API import to avoid errors. Community dicsussions show you sometimes must strip fields that conflict with the target instance.    Test on staging first. 
+
+##### &emsp;  n8n Community
+##### &emsp;  +1
+
+---
 
 🧪 CI/CD & Automated Provisioning
 
@@ -547,15 +509,6 @@ Helm / Kubernetes charts for n8n (community/official charts).
 Artifact Hub
 +1
 
-#### Future Enhancements to the Current Workflow 🔮:
-
-##### &emsp; Add multi-calendar / multi-user support for enterprise teams
-
-##### &emsp; Support for Microsoft Teams / Outlook Calendar
-
-##### &emsp; Integration with Slack / MS Teams bots for chat-driven scheduling
-
-##### &emsp; Automated rescheduling and conflict resolution"# Enterprise-Agentic-AI---Scalable-Meeting-Orchestration-with-n8n" 
 
 ---
 
