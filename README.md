@@ -70,7 +70,7 @@
 
 
 
-  
+  sequencediagram
 
     U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
     A->>G: Check availability for tomorrow
