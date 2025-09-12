@@ -193,6 +193,8 @@
 
 ##### Reusable Design: The same structure can be repurposed for other enterprise workflows (ticketing, approvals, task automation).
 
+---
+
 
  
 ## How to Deploy the Current Workflow 🚀
@@ -229,47 +231,28 @@ Suggest slots
 
 Book events automatically
 
-
-💬 Example Conversation Flow
-
-Here’s how a typical interaction looks once the workflow is deployed:
-
-User:
-"Can you schedule a 30-minute meeting with John tomorrow afternoon?"
-
-AI Agent:
-"Sure! Let me check your calendar for availability tomorrow afternoon..."
-
-(Agent uses Google Calendar to fetch free slots)
-
-AI Agent:
-"You are free at 2:00 PM, 3:30 PM, and 4:15 PM. Which works best for you?"
-
-User:
-"Let’s go with 3:30 PM."
-
-AI Agent:
-"Perfect. Scheduling the meeting with John at 3:30 PM tomorrow. Do you want me to add a description?"
-
-User:
-"Yes — add 'Project Roadmap Discussion'."
-
-AI Agent:
-"Done! I’ve scheduled 'Project Roadmap Discussion' with John tomorrow at 3:30 PM, and added it to your Google Calendar."
+---
 
 
 
+## Scalability for Enterprise Applications ⚙️ 
+
+#### While this workflow focuses on meeting scheduling, the same architecture can be extended to other enterprise use cases.
+
+#### This is the current workflow
+
+<img width="1713" height="133" alt="Image" src="https://github.com/user-attachments/assets/d02b28b6-c452-466e-8a5a-813f7b95a4b3" />
+
+---
 
 
+#### This is an example of how the workflow may be scaled to other enterprise use cases
+
+<img width="1858" height="283" alt="Image" src="https://github.com/user-attachments/assets/f3d1bccd-2a3f-47a7-80fb-6631206572d1" />
+
+---
 
 
-
-
-
-
-⚙️ Scalability for Enterprise Applications
-
-While this workflow focuses on meeting scheduling, the same architecture can be extended to other enterprise use cases:
 
 Human Resources: Automate interview scheduling & reminders
 
