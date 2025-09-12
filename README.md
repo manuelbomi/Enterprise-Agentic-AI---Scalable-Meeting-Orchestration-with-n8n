@@ -62,14 +62,15 @@
 ---
 
 #### Below is a step-by-step interaction diagram showing how the AI Agent interact with the uset to help schedule a meeting:
-
-sequenceDiagram
-
-    * participant U as User
+  * participant U as User
     
-    * participant A as AI Agent
+  * participant A as AI Agent
     
-    * participant G as Google Calendar
+  * participant G as Google Calendar
+
+
+
+  
 
     U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
     A->>G: Check availability for tomorrow
