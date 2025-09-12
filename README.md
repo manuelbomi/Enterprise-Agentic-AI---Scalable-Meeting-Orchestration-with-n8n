@@ -4,6 +4,21 @@
 
 #### This workflow demonstrates how Agentic AI can seamlessly integrate with enterprise tools to provide scalable, intelligent, and context-aware scheduling assistance. It can be adapted for broader enterprise use cases beyond just calendar automation.
 
+#### Here is a figure of the Agent:
+
+<img width="995" height="360" alt="Image" src="https://github.com/user-attachments/assets/148ba70b-0b80-462f-b414-55142ae3e711" />
+
+
+---
+
+#### For AI Architects that are interest in step-by-step detail of how the Agent is created in n8n, it is given here:
+
+#### Instructions regarding how the Agent can be cloned and deployed using its json file (available here: ) is given under the deployment section in the Read Me. Further details regarding how the Agent's deployment can be scaled for other applications in an enterprise setting are also given in later segments of the Read Me. They could also be obtained on files included in the repository. 
+
+
+
+---
+
 ## Introduction 📖
 
 #### In enterprise environments, scheduling meetings across teams can be repetitive and time-consuming. This repository provides a ready-to-use Agentic AI workflow in n8n that:
@@ -18,23 +33,25 @@
 
 * It showcases how Agentic AI principles can be applied to real-world enterprise workflows.
 
+---
+
 ## Workflow Overview 🛠️ 
 
-The workflow is composed of the following components:
+#### The workflow is composed of the following components:
 
-Chat Input – Entry point for the user to interact with the assistant.
+* Chat Input – Entry point for the user to interact with the assistant.
 
-AI Agent – Orchestrates the conversation, manages tools, and ensures correct action flow.
+* AI Agent – Orchestrates the conversation, manages tools, and ensures correct action flow.
 
-OpenAI Chat Model – Provides reasoning and natural language capabilities (powered by gpt-4o-mini).
+* OpenAI Chat Model – Provides reasoning and natural language capabilities (powered by gpt-4o-mini).
 
-Simple Memory – Stores context across interactions.
+* Simple Memory – Stores context across interactions.
 
-Google Calendar Tools
+* Google Calendar Tools
 
-Get Availability: Searches for free time slots.
+* Get Availability: Searches for free time slots.
 
-Create Event: Books the meeting once a slot is confirmed.
+* Create Event: Books the meeting once a slot is confirmed.
 
 🔗 Workflow Diagram:
 
