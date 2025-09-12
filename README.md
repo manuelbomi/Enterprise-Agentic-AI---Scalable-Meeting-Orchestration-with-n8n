@@ -156,7 +156,7 @@
 
 ####  5. Google Calendar Tools
      
-##### &emsp; &emsp; a) Get Availability
+##### &emsp;  a) Get Availability
 
 ##### &emsp; &emsp;  Node Type: googleCalendarTool
 
@@ -170,7 +170,7 @@
 
 ##### &emsp; &emsp; List of free blocks that the AI can propose to the user.
 
-##### &emsp; &emsp; b) Create Event
+##### &emsp; b) Create Event
 
 ##### &emsp; &emsp; Node Type: googleCalendarTool
 
@@ -277,7 +277,7 @@ n8n Docs
 
 ##### &emsp; Use Docker Compose for a simple repeatable deployment. For production, use a managed Postgres DB and consider Redis for queue mode.
 
-'''
+---
 Minimal docker-compose.yml (example)
 version: "3.8"
 services:
@@ -326,8 +326,7 @@ services:
       - redis
 
 
-
-'''
+---
 
 
 
