@@ -13,7 +13,9 @@
 
 #### For AI Architects that are interest in step-by-step detail of how the Agent is created in n8n, it is given here:
 
-#### Instructions regarding how the Agent can be cloned and deployed using its json file (available here: ) is given under the deployment section in the Read Me. Further details regarding how the Agent's deployment can be scaled for other applications in an enterprise setting are also given in later segments of the Read Me. They could also be obtained on files included in the repository. 
+#### Instructions regarding how the Agent can be cloned and deployed using its json file (available here: ) is given under the deployment section in the Read Me. 
+
+#### Further details regarding how the Agent's deployment can be scaled for other applications in an enterprise setting are also given in later segments of the Read Me. They could also be obtained on files included in the repository. 
 
 
 
