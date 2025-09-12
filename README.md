@@ -130,15 +130,15 @@
 
 #### 3. OpenAI Chat Model
 
-  ##### &emsp;Node Type: lmChatOpenAi
+  ##### &emsp; Node Type: lmChatOpenAi
 
   ##### &emsp; Model Used: gpt-4o-mini
 
   ##### &emsp; Purpose: Provides natural language reasoning and response generation.
 
-  #### &emsp;Why GPT-4o-mini?
+  #### &emsp;  Why GPT-4o-mini?
 
-  ##### &emsp; &emsp;Optimized for speed and cost.
+  ##### &emsp; &emsp; Optimized for speed and cost.
 
 Provides sufficient intelligence for scheduling tasks.
 
