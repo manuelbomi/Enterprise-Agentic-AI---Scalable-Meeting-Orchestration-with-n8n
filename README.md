@@ -58,8 +58,34 @@
 * This is the n8n Agentic AI workflow that powers the scheduling assistant:
 
 <img width="1100" height="344" alt="Image" src="https://github.com/user-attachments/assets/1361cf67-feed-43fe-bcc3-5a89505dec0c" />
-
   
+---
+
+#### Below is a step-by-step interaction diagram showing how the AI Agent interact with the uset to help schedule a meeting:
+
+sequenceDiagram
+    participant U as User
+    participant A as AI Agent
+    participant G as Google Calendar
+
+    U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
+    A->>G: Check availability for tomorrow
+    G-->>A: Free slots: 2:00 PM, 3:30 PM, 4:15 PM
+    A-->>U: "You are free at 2:00, 3:30, and 4:15. Which works best?"
+    U->>A: "Let’s go with 3:30 PM."
+    A->>U: "Should I add a description?"
+    U->>A: "Yes, 'Project Roadmap Discussion'."
+    A->>G: Create event at 3:30 PM with description
+    G-->>A: Event created
+    A-->>U: "Meeting scheduled with John at 3:30 PM tomorrow."
+
+---
+
+#### Below are some figures of how the Agent interact with users via the n8n UI
+
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/792d2cf7-2235-4c8b-b8f6-1c91f80403f7" />
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0d2b2e3e-8580-47cf-9db2-954faa2bba46" />
+
 ---
 
 ## Workflow Diagram 🔗:
