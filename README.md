@@ -140,55 +140,43 @@
 
   ##### &emsp; &emsp; Optimized for speed and cost.
 
-Provides sufficient intelligence for scheduling tasks.
+  ##### &emsp; &emsp; Provides sufficient intelligence for scheduling tasks.
+  
 
-* 4. Simple Memory
+#### 4. Simple Memory
 
-Node Type: memoryBufferWindow
+  ##### &emsp; Node Type: memoryBufferWindow
 
-Purpose: Stores the history of recent messages.
+  ##### &emsp; Purpose: Stores the history of recent messages.
 
-* Benefit:
+  ##### &emsp; * Benefit:
 
-Helps the AI maintain context (e.g., remembering the meeting details during confirmation).
+  ##### &emsp; &ensp; Helps the AI maintain context (e.g., remembering the meeting details during confirmation).
 
-* 5. Google Calendar Tools
+
+####  5. Google Calendar Tools
      
-a) Get Availability
+##### &emsp; &emsp; a) Get Availability
 
-Node Type: googleCalendarTool
+##### &emsp; &emsp;  Node Type: googleCalendarTool
 
-Purpose: Checks the user’s Google Calendar for free time slots.
+##### &emsp; &emsp;  Purpose: Checks the user’s Google Calendar for free time slots.
 
-Inputs:
+##### &emsp; &emsp;  Inputs:
 
-start_time and end_time from AI reasoning.
+##### &emsp; &emsp;  start_time and end_time from AI reasoning.
 
-Outputs:
+##### &emsp; &emsp;  Outputs:
 
-List of free blocks that the AI can propose to the user.
 
-b) Create Event
-
-Node Type: googleCalendarTool
-
-Purpose: Books the confirmed meeting.
-
-Inputs:
-
-start_date, end_date, summary, and description.
-
-Outputs:
-
-Confirmation that an event has been created
 
 #### Key Highlights of the Design 💡  :
 
-Agentic AI Pattern: Combines reasoning (LLM), context (Memory), and action execution (Calendar Tools).
+##### Agentic AI Pattern: Combines reasoning (LLM), context (Memory), and action execution (Calendar Tools).
 
-Enterprise-Ready: Can scale to multiple calendars, integrate with SSO, or extend to HR/CRM use cases.
+##### Enterprise-Ready: Can scale to multiple calendars, integrate with SSO, or extend to HR/CRM use cases.
 
-Reusable Design: The same structure can be repurposed for other enterprise workflows (ticketing, approvals, task automation).
+##### Reusable Design: The same structure can be repurposed for other enterprise workflows (ticketing, approvals, task automation).
 
 
  
