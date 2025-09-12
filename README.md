@@ -88,42 +88,107 @@
 #### Below are some figures of how the Agent interact with users via the n8n UI
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0d2b2e3e-8580-47cf-9db2-954faa2bba46" />
 
+#### Result of the Agent's effort on Google Calendar
+
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/792d2cf7-2235-4c8b-b8f6-1c91f80403f7" />
 
 
 ---
 
-## Workflow Diagram 🔗:
+## Workflow Components Details 🧩 :
+* 1. Chat Input
 
-🎥 Demo
-1. Workflow Architecture
+Node Type: chatTrigger
 
+Purpose: Entry point for user interaction.
 
+Notes:
 
+Captures user queries (e.g., “Schedule a meeting with John tomorrow”).
 
-2. Example Conversation Flow
+Provides a conversational interface for the assistant.
 
-Below is a step-by-step interaction diagram showing how the AI assistant helps schedule a meeting:
+* 2. AI Agent
 
-sequenceDiagram
-    participant U as User
-    participant A as AI Agent
-    participant G as Google Calendar
+Node Type: langchain.agent
 
-    U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
-    A->>G: Check availability for tomorrow
-    G-->>A: Free slots: 2:00 PM, 3:30 PM, 4:15 PM
-    A-->>U: "You are free at 2:00, 3:30, and 4:15. Which works best?"
-    U->>A: "Let’s go with 3:30 PM."
-    A->>U: "Should I add a description?"
-    U->>A: "Yes, 'Project Roadmap Discussion'."
-    A->>G: Create event at 3:30 PM with description
-    G-->>A: Event created
-    A-->>U: "Meeting scheduled with John at 3:30 PM tomorrow."
+Purpose: Core reasoning engine of the workflow.
 
-3. Scheduled Event in Google Calendar
+Features:
 
-Once confirmed, the workflow creates a Google Calendar event automatically:
+Takes user input.
+
+Uses tools (Google Calendar actions).
+
+Delegates tasks like checking availability or creating events.
+
+Configured With:
+
+System Message → Defines assistant role as a “calendar assistant.”
+
+Memory & LLM → Keeps track of context across the conversation.
+
+* 3. OpenAI Chat Model
+
+Node Type: lmChatOpenAi
+
+Model Used: gpt-4o-mini
+
+Purpose: Provides natural language reasoning and response generation.
+
+Why GPT-4o-mini?
+
+Optimized for speed and cost.
+
+Provides sufficient intelligence for scheduling tasks.
+
+* 4. Simple Memory
+
+Node Type: memoryBufferWindow
+
+Purpose: Stores the history of recent messages.
+
+* Benefit:
+
+Helps the AI maintain context (e.g., remembering the meeting details during confirmation).
+
+* 5. Google Calendar Tools
+     
+a) Get Availability
+
+Node Type: googleCalendarTool
+
+Purpose: Checks the user’s Google Calendar for free time slots.
+
+Inputs:
+
+start_time and end_time from AI reasoning.
+
+Outputs:
+
+List of free blocks that the AI can propose to the user.
+
+b) Create Event
+
+Node Type: googleCalendarTool
+
+Purpose: Books the confirmed meeting.
+
+Inputs:
+
+start_date, end_date, summary, and description.
+
+Outputs:
+
+Confirmation that an event has been created
+
+#### Key Highlights of the Design 💡  :
+
+Agentic AI Pattern: Combines reasoning (LLM), context (Memory), and action execution (Calendar Tools).
+
+Enterprise-Ready: Can scale to multiple calendars, integrate with SSO, or extend to HR/CRM use cases.
+
+Reusable Design: The same structure can be repurposed for other enterprise workflows (ticketing, approvals, task automation).
 
 
  
