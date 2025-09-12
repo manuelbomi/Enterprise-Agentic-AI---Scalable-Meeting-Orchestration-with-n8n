@@ -426,7 +426,6 @@ services:
 ##### &emsp;  n8n Docs
 ##### &emsp;  +1
 
----
 
 * C) API import (programmatic, advanced)
 
@@ -437,77 +436,88 @@ services:
 
 ---
 
-🧪 CI/CD & Automated Provisioning
+#### 🧪 CI/CD & Automated Provisioning
 
-Keep workflow/ JSON in Git.
+* Keep workflow/ JSON in Git.
 
-Use a CI job to run n8n import:workflow (or call API) into staging after changes are merged.
+* Use a CI job to run n8n import:workflow (or call API) into staging after changes are merged.
 
-For secrets, use your CI secrets store and avoid writing keys to disk.
+* For secrets, use your CI secrets store and avoid writing keys to disk.
 
-Add smoke tests that run a simple test message through the chat trigger (or run a synthetic job) to validate the workflow imported correctly.
+* Add smoke tests that run a simple test message through the chat trigger (or run a synthetic job) to validate the workflow imported correctly.
 
-📦 Backups & Recovery
+---
 
-Backup Postgres DB regularly (daily, with WAL streaming for point-in-time recovery).
+#### 📦 Backups & Recovery
 
-Backup ~/.n8n or your binary storage (if using local file storage).
+* Backup Postgres DB regularly (daily, with WAL streaming for point-in-time recovery).
 
-Periodically export workflows and credentials using CLI for an extra copy.
+* Backup ~/.n8n or your binary storage (if using local file storage).
 
-📈 Monitoring & Observability
+* Periodically export workflows and credentials using CLI for an extra copy.
 
-Capture metrics (Prometheus + Grafana) for:
+---
 
-Workflow executions (success/failure rates)
+#### 📈 Monitoring & Observability
 
-Queue lengths, worker lag (Redis metrics)
+* Capture metrics (Prometheus + Grafana) for:
 
-HTTP error rates & latency for webhook nodes
+* Workflow executions (success/failure rates)
 
-Centralized logging (ELK / Loki) for troubleshooting.
+* Queue lengths, worker lag (Redis metrics)
 
-Configure alerts for failed executions or large queue backlogs.
+* HTTP error rates & latency for webhook nodes
 
-✅ Enterprise checklist (pre-launch)
+* Centralized logging (ELK / Loki) for troubleshooting.
 
- Use managed Postgres or HA Postgres cluster.
+* Configure alerts for failed executions or large queue backlogs.
 
- Enable queue mode with Redis for worker scaling.
+* (see example in: )
 
- Configure TLS via ingress / reverse proxy.
+---
+  
 
- Put n8n behind SSO (Okta/AzureAD) or enable basic auth for the Editor.
+#### ✅ Enterprise checklist (pre-launch)
 
- Store credentials in secure secret store.
+* Use managed Postgres or HA Postgres cluster.
 
- Set resource limits and HPA for K8s deployments.
+* Enable queue mode with Redis for worker scaling.
 
- Configure backup and restore procedures.
+* Configure TLS via ingress / reverse proxy.
 
- Test importing workflow/Agentic_AI_workflow.json in staging.
+* Put n8n behind SSO (Okta/AzureAD) or enable basic auth for the Editor.
 
- Run security review on OAuth scopes for Google Calendar credentials.
+* Store credentials in secure secret store.
 
-✅ Useful links & references
+* Set resource limits and HPA for K8s deployments.
 
-n8n — Export & import workflows (Editor UI). 
-n8n Docs
+* Configure backup and restore procedures.
 
-n8n — Docker Compose / Server setups. 
-n8n Docs
-+1
+* Test importing workflow/Agentic_AI_workflow.json in staging.
 
-n8n — CLI commands & import tips. 
-n8n Docs
+* Run security review on OAuth scopes for Google Calendar credentials.
 
-Community notes about API import caveats and tips. 
-n8n Community
-+1
+---
 
-Helm / Kubernetes charts for n8n (community/official charts). 
-Artifact Hub
-+1
+#### ✅ Useful links & references
+
+* n8n — Export & import workflows (Editor UI). 
+* n8n Docs
+
+* n8n — Docker Compose / Server setups. 
+* n8n Docs
+* +1
+
+* n8n — CLI commands & import tips. 
+* n8n Docs
+
+* Community notes about API import caveats and tips. 
+* n8n Community
+* +1
+
+* Helm / Kubernetes charts for n8n (community/official charts). 
+* Artifact Hub
+* +1
 
 
 ---
