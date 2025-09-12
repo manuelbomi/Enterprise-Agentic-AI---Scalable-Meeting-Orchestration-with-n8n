@@ -55,35 +55,53 @@
 
 * Create Event: Books the meeting once a slot is confirmed.
 
-🔗 Workflow Diagram:
+* This is the n8n Agentic AI workflow that powers the scheduling assistant:
+
+<img width="1100" height="344" alt="Image" src="https://github.com/user-attachments/assets/1361cf67-feed-43fe-bcc3-5a89505dec0c" />
+
+  
+---
+
+## Workflow Diagram 🔗:
+
+🎥 Demo
+1. Workflow Architecture
 
 
-⚙️ Scalability for Enterprise Applications
 
-While this workflow focuses on meeting scheduling, the same architecture can be extended to other enterprise use cases:
 
-Human Resources: Automate interview scheduling & reminders
+2. Example Conversation Flow
 
-Project Management: Book sprint reviews, stand-ups, and cross-team syncs
+Below is a step-by-step interaction diagram showing how the AI assistant helps schedule a meeting:
 
-Customer Support: Schedule client calls, follow-ups, and escalations
+sequenceDiagram
+    participant U as User
+    participant A as AI Agent
+    participant G as Google Calendar
 
-Sales & Marketing: Auto-schedule demos, campaigns, and recurring check-ins
+    U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
+    A->>G: Check availability for tomorrow
+    G-->>A: Free slots: 2:00 PM, 3:30 PM, 4:15 PM
+    A-->>U: "You are free at 2:00, 3:30, and 4:15. Which works best?"
+    U->>A: "Let’s go with 3:30 PM."
+    A->>U: "Should I add a description?"
+    U->>A: "Yes, 'Project Roadmap Discussion'."
+    A->>G: Create event at 3:30 PM with description
+    G-->>A: Event created
+    A-->>U: "Meeting scheduled with John at 3:30 PM tomorrow."
 
-Scalability Features:
+3. Scheduled Event in Google Calendar
 
-Plug-and-play integration with multiple calendars or services (Google Workspace, Microsoft Outlook, etc.)
+Once confirmed, the workflow creates a Google Calendar event automatically:
 
-Extendable with enterprise authentication (SSO, OAuth2)
 
-Reusable Agentic AI pattern: chat input → memory → reasoning → tool execution
-
-🚀 How to Deploy
-1. Clone the Repository
+ 
+## How to Deploy the Current Workflow 🚀
+* 1. Clone the Repository
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
 
-2. Import Workflow into n8n
+* 2. Import Workflow into n8n
 
 Open your n8n instance
 .
@@ -92,13 +110,13 @@ Go to Workflows → Import from File.
 
 Upload Agentic_AI_workflow.json from this repo.
 
-3. Set Up Credentials
+* 3. Set Up Credentials
 
 Configure your OpenAI API key under Credentials → OpenAI.
 
 Configure your Google Calendar OAuth2 credentials under Credentials → Google Calendar.
 
-4. Run the Workflow
+* 4. Run the Workflow
 
 Activate the workflow.
 
@@ -141,62 +159,34 @@ AI Agent:
 "Done! I’ve scheduled 'Project Roadmap Discussion' with John tomorrow at 3:30 PM, and added it to your Google Calendar."
 
 
-🎥 Demo
-1. Workflow Architecture
-
-This is the n8n Agentic AI workflow that powers the scheduling assistant:
-
-2. Example Conversation Flow
-
-Below is a step-by-step interaction diagram showing how the AI assistant helps schedule a meeting:
-
-sequenceDiagram
-    participant U as User
-    participant A as AI Agent
-    participant G as Google Calendar
-
-    U->>A: "Can you schedule a 30-min meeting with John tomorrow?"
-    A->>G: Check availability for tomorrow
-    G-->>A: Free slots: 2:00 PM, 3:30 PM, 4:15 PM
-    A-->>U: "You are free at 2:00, 3:30, and 4:15. Which works best?"
-    U->>A: "Let’s go with 3:30 PM."
-    A->>U: "Should I add a description?"
-    U->>A: "Yes, 'Project Roadmap Discussion'."
-    A->>G: Create event at 3:30 PM with description
-    G-->>A: Event created
-    A-->>U: "Meeting scheduled with John at 3:30 PM tomorrow."
-
-3. Scheduled Event in Google Calendar
-
-Once confirmed, the workflow creates a Google Calendar event automatically:
 
 
 
 
-🚀 Demo Visuals
 
-To help you understand how the Agentic AI Enterprise Calendar Assistant works, below are three complementary views of the workflow:
 
-1. Workflow Flowchart (n8n Agentic AI Logic)
 
-This flowchart shows the step-by-step workflow inside n8n — from user chat input to AI processing, checking calendar availability, and creating events.
 
-2. Sequence Diagram (Agentic AI Interaction)
 
-The sequence diagram illustrates the dynamic interaction between the user, AI agent, memory, and Google Calendar APIs.
+⚙️ Scalability for Enterprise Applications
 
-3. High-Level Architecture (Enterprise Deployment View)
+While this workflow focuses on meeting scheduling, the same architecture can be extended to other enterprise use cases:
 
-This architecture diagram explains how the workflow can be scaled in an enterprise environment, showing integration with n8n, OpenAI, Google Calendar, and possible extensions (ERP, CRM, HR systems).
+Human Resources: Automate interview scheduling & reminders
 
-👉 All three visuals provide different levels of understanding:
+Project Management: Book sprint reviews, stand-ups, and cross-team syncs
 
-Flowchart → For workflow builders (low-code/no-code ops teams).
+Customer Support: Schedule client calls, follow-ups, and escalations
 
-Sequence diagram → For developers and architects.
+Sales & Marketing: Auto-schedule demos, campaigns, and recurring check-ins
 
-Architecture diagram → For enterprise decision-makers.
+Scalability Features:
 
+Plug-and-play integration with multiple calendars or services (Google Workspace, Microsoft Outlook, etc.)
+
+Extendable with enterprise authentication (SSO, OAuth2)
+
+Reusable Agentic AI pattern: chat input → memory → reasoning → tool execution
 
 
 
