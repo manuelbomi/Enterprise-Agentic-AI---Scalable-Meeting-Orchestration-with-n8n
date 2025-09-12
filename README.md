@@ -332,15 +332,54 @@ services:
 #### Processing the Kafka Stream. The raw Kafka messages (often in binary format) are typically parsed and transformed. For instance, if the messages are JSON strings, they can be parsed into a structured schema.
 ---
 ```ruby
-    from pyspark.sql.functions import from_json, col
-    from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
-    # Define your schema based on the expected JSON data structure. Inferschema is not used in this instance.
-    schema = StructType([
-        StructField("id", IntegerType()),
-        StructField("name", StringType()),
-        StructField("value", IntegerType())
-    ])
+Minimal docker-compose.yml (example)
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: n8n_pass
+      POSTGRES_DB: n8n
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+
+  n8n:
+    image: n8nio/n8n:latest
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      # Basic required envs - set to secure vals in production
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: n8n_pass
+
+      # Use redis for queue mode
+      QUEUE_MODE: "true"
+      EXECUTIONS_PROCESS: "main"
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+      # Admin user (or use OAuth/SSO)
+      N8N_BASIC_AUTH_ACTIVE: "true"
+      N8N_BASIC_AUTH_USER: "admin"
+      N8N_BASIC_AUTH_PASSWORD: "${N8N_BASIC_AUTH_PASSWORD}" # set in .env
+    volumes:
+      - ./n8n:/home/node/.n8n
+    depends_on:
+      - postgres
+      - redis
+
 ```
 ---
 
