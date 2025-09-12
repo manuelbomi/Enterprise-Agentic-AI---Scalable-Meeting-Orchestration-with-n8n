@@ -96,37 +96,37 @@
 ---
 
 ## Workflow Components Details 🧩 :
-* 1. Chat Input
+#### 1. Chat Input
 
-Node Type: chatTrigger
+  ##### Node Type: chatTrigger
 
-Purpose: Entry point for user interaction.
+  ##### Purpose: Entry point for user interaction.
 
-Notes:
+  ##### Notes:
 
-Captures user queries (e.g., “Schedule a meeting with John tomorrow”).
+  ##### Captures user queries (e.g., “Schedule a meeting with John tomorrow”).
 
-Provides a conversational interface for the assistant.
+  ##### Provides a conversational interface for the assistant.
 
-* 2. AI Agent
+#### 2. AI Agent
 
-Node Type: langchain.agent
+  ##### Node Type: langchain.agent
 
-Purpose: Core reasoning engine of the workflow.
+  ##### Purpose: Core reasoning engine of the workflow.
 
-Features:
+  ##### Features:
 
-Takes user input.
+  ##### Takes user input.
 
-Uses tools (Google Calendar actions).
+  ##### Uses tools (Google Calendar actions).
 
-Delegates tasks like checking availability or creating events.
+  ##### Delegates tasks like checking availability or creating events.
 
-Configured With:
+  ##### Configured With:
 
-System Message → Defines assistant role as a “calendar assistant.”
+  ##### System Message → Defines assistant role as a “calendar assistant.”
 
-Memory & LLM → Keeps track of context across the conversation.
+  ##### Memory & LLM → Keeps track of context across the conversation.
 
 * 3. OpenAI Chat Model
 
