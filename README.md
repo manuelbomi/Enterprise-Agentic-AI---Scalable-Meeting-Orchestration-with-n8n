@@ -100,13 +100,13 @@
 
   ##### &emsp; Node Type: chatTrigger
 
-  ##### &emsp; ##### Purpose: Entry point for user interaction.
+  ##### &emsp; Purpose: Entry point for user interaction.
 
-  ##### Notes:
+  ##### &emsp; Notes:
 
-  ##### Captures user queries (e.g., “Schedule a meeting with John tomorrow”).
+  ##### &emsp; Captures user queries (e.g., “Schedule a meeting with John tomorrow”).
 
-  ##### Provides a conversational interface for the assistant.
+  ##### &emsp; Provides a conversational interface for the assistant.
 
 #### 2. AI Agent
 
