@@ -1,4 +1,4 @@
-# Enterprise Agentic AI: Scalable Meeting Orchestration with n8n 
+# Enterprise Agentic AI: Scalable Meeting Orchestration with n8n
 
 #### An Agentic AI–powered workflow built with n8n, designed to automate meeting scheduling across an enterprise using OpenAI + Google Calendar.
 
